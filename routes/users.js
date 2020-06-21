@@ -4,16 +4,6 @@ const jwt = require ('jsonwebtoken');
 require('dotenv').config();
 const userValidator = require('../validator/user.validator');
 
-// const authenticateToken = (req, res, next) => {
-//   const token = req.cookies['awtToken'];
-//   if (!token) res.status(401).send({msg: 'Unauthorized Access'});
-//
-//   jwt.verify(token, process.env.jwt_key, (err, user) => {
-//     if (err) return res.status(403).send({msg: 'Unauthorized Forbidden'});
-//     req.user = user;
-//     next()
-//   });
-// };
 const authenticateToken = (req, res, next) => {
   const token = req.cookies['awtToken'];
   if (!token) {
@@ -31,6 +21,7 @@ const authenticateToken = (req, res, next) => {
 
 const router = express.Router();
 
+router.post('/request_otp',user_controller.request_otp);
 
 router.post('/createuser',authenticateToken, [userValidator.check_username(), userValidator.check_email(), userValidator.check_password(), userValidator.check_phone()], user_controller.createUser);
 
@@ -41,6 +32,8 @@ router.get('/loginPage',authenticateToken, user_controller.loginPage);
 router.get('/signPage',authenticateToken, user_controller.signPage);
 
 router.get('/logout',user_controller.logout);
+
+router.get('/submit_otp',user_controller.submit_otp);
 
 
 
