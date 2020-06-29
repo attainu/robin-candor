@@ -1,0 +1,31 @@
+POST http://localhost:3000/users/getposts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5payIsImlhdCI6MTU5MjAyOTY3M30.Aee6Kit4f04mUXYrm3d1NvosTRZebGrGbwfqoKWnud4"
+
+###
+
+POST  http://localhost:3000/users/post/addcomment
+Content-Type: application/json
+
+{
+    "category": "anik_ghosh"
+}
+
+###
+
+GET http://localhost:3000/post/getdata/?current_url=https://university.attainu.com/dashboard
+
+###
+
+GET http://localhost:3000/post/render?current_url=https%3A%2F%2Funiversity.attainu.com%2Fdashboard&category=question&page=2&search_username=ghosh
+
+###
+
+GET http://localhost:3000/post/render?current_url=https%3A%2F%2Funiversity.attainu.com%2Fdashboard&category=question&page=1&sort_likes=true
+
+###
+
+GET http://localhost:3000/post/render?current_url=https%3A%2F%2Funiversity.attainu.com%2Fdashboard&category=question&page=1&search_username=ghosh&sort_likes=true
+
+###
+
+
